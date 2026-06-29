@@ -65,24 +65,17 @@ public class LoginToNdosiWebsite {
 
     @Test(priority = 9)
     public void selectDevice() throws InterruptedException {
-        driver.findElement(By.xpath("//select[@name='deviceType']")).click();
+        driver.findElement(By.xpath("//select[@name='deviceType']")).sendKeys("phone");
 
         Thread.sleep(2000);
     }
-    @Test (priority = 10)
-    public void clickDeviceOption() throws InterruptedException {
-        WebElement deviceOption = driver.findElement(By.xpath("//*[@value='phone']"));
-        deviceOption.sendKeys("P");
-        //driver.findElement(By.tagName("body")).click();
-        Thread.sleep(2000);
-    }
 
 
 
 
-/* @AfterTest
+ @AfterTest
     public void closeBrowser() {
         driver.quit();
-    }*/
+    }
 }
 
