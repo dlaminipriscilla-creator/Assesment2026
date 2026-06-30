@@ -66,16 +66,45 @@ public class LoginToNdosiWebsite {
     @Test(priority = 9)
     public void selectDevice() throws InterruptedException {
         driver.findElement(By.xpath("//select[@name='deviceType']")).sendKeys("phone");
-
+        Thread.sleep(2000);
+    }
+@Test (priority = 10)
+    public void selectDeviceType() throws InterruptedException {
+        driver.findElement(By.xpath("//select[@name='brand']")).sendKeys("apple");
         Thread.sleep(2000);
     }
 
-
-
-
- @AfterTest
-    public void closeBrowser() {
-        driver.quit();
+    @Test (priority = 11)
+    public void clickStorageType(){
+        driver.findElement(By.xpath("//*[@id='storage-128GB']")).click();
     }
-}
+    @Test (priority = 12)
+    public void selectColour(){
+        driver.findElement(By.xpath("//select[@name='color']")).sendKeys("blue");
+    }
+@Test (priority = 13)
+    public void enterQuantity(){
+        driver.findElement(By.xpath("//input[@id='quantity']")).sendKeys("2");
+    }
+@Test (priority = 14)
+    public void enterAddress() throws InterruptedException {
+        driver.findElement(By.xpath("//input[@id='address']")).sendKeys("123 Test Street");
+        Thread.sleep(2000);
+    }
+@Test (priority = 15)
+    public void clickNextButton(){
+   driver.findElement(By.id("inventory-next-btn")).click();
+    }
+@Test (priority = 16)
+    public void selectShippingMethod(){
+        driver.findElement(By.id("shipping-option-express")).click();
+    }
+    }
+
+
+    // @AfterTest
+    //public void closeBrowser() {
+      //  driver.quit();
+    //}
+//}
 
