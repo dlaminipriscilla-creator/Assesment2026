@@ -68,43 +68,81 @@ public class LoginToNdosiWebsite {
         driver.findElement(By.xpath("//select[@name='deviceType']")).sendKeys("phone");
         Thread.sleep(2000);
     }
-@Test (priority = 10)
+
+    @Test(priority = 10)
     public void selectDeviceType() throws InterruptedException {
         driver.findElement(By.xpath("//select[@name='brand']")).sendKeys("apple");
         Thread.sleep(2000);
     }
 
-    @Test (priority = 11)
-    public void clickStorageType(){
+    @Test(priority = 11)
+    public void clickStorageType() {
         driver.findElement(By.xpath("//*[@id='storage-128GB']")).click();
     }
-    @Test (priority = 12)
-    public void selectColour(){
+
+    @Test(priority = 12)
+    public void selectColour() {
         driver.findElement(By.xpath("//select[@name='color']")).sendKeys("blue");
     }
-@Test (priority = 13)
-    public void enterQuantity(){
+
+    @Test(priority = 13)
+    public void enterQuantity() {
         driver.findElement(By.xpath("//input[@id='quantity']")).sendKeys("2");
     }
-@Test (priority = 14)
+
+    @Test(priority = 14)
     public void enterAddress() throws InterruptedException {
         driver.findElement(By.xpath("//input[@id='address']")).sendKeys("123 Test Street");
         Thread.sleep(2000);
     }
-@Test (priority = 15)
-    public void clickNextButton(){
-   driver.findElement(By.id("inventory-next-btn")).click();
+
+    @Test(priority = 15)
+    public void clickNextButton() {
+        driver.findElement(By.id("inventory-next-btn")).click();
     }
-@Test (priority = 16)
-    public void selectShippingMethod(){
+
+    @Test(priority = 16)
+    public void selectShippingMethod() {
         driver.findElement(By.id("shipping-option-express")).click();
     }
+
+    @Test(priority = 17)
+    public void clickWarrantyButton() {
+        driver.findElement(By.xpath("//label[@id='warranty-option-1yr']")).click();
     }
 
+    @Test(priority = 18)
+    public void inputDiscountCode() throws InterruptedException {
+        driver.findElement(By.id("discount-code")).sendKeys("SAVE10");
+        Thread.sleep(5000);
+    }
 
-    // @AfterTest
-    //public void closeBrowser() {
-      //  driver.quit();
-    //}
-//}
+    @Test(priority = 19)
+    public void clickApplyButton() throws InterruptedException {
+        driver.findElement(By.xpath("//button[@id='apply-discount-btn']")).click();
+        Thread.sleep(3000);
+    }
+
+    @Test(priority = 20)
+    public void clickConfirmButton() throws InterruptedException {
+        driver.findElement(By.xpath("//button[@id='purchase-device-btn']")).click();
+        Thread.sleep(2000);
+    }
+
+    @Test(priority = 21)
+    public void clickViewInvoiceButton() throws InterruptedException {
+        driver.findElement(By.xpath("//button[@id='view-history-btn']")).click();
+        Thread.sleep(3000);
+    }
+
+    @Test(priority = 22)
+    public void clickViewButton() throws InterruptedException {
+        driver.findElement(By.xpath("//button[text()='\uD83D\uDC41\uFE0F View']")).click();
+        Thread.sleep(3000);
+    }
+    @AfterTest
+    public void closeBrowser() {
+        driver.quit();
+    }
+}
 
